@@ -18,7 +18,7 @@ Once the app starts running:
 
     curl localhost:8080/health
   
-  To make a prediction of an image:
+  To classify an image:
   
     curl --header "Content-Type: application/json" \
            --request POST \
