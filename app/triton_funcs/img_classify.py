@@ -47,7 +47,7 @@ class ImageClassifier:
     def __call__(self, img_path:str)->Tuple[int, str]:
         file = pathlib.Path(img_path)
         if not file.exists():
-            return (None, None)
+            return (-1, "null")
         img = Image.open(file)
         if img.mode != "RGB":
             img = img.convert("RGB")
