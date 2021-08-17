@@ -53,7 +53,7 @@ if [ $1 == $RUN ]; then
     if [ -z "$APP_CONTAINER_RUNNING" ]; then
         echo "APP Container $APP_CONTAINER_NAME Is Not Running, Will Start The Container Now"
         echo "Starting APP Container $APP_CONTAINER_NAME ..."
-        docker run -d --rm --name $APP_CONTAINER_NAME --network="host" -p 8080:8080 $APP_IMAGE_NAME
+        docker run -d --rm --name $APP_CONTAINER_NAME -v /home/ubuntu/image_data:/image_data --network="host" -p 8080:8080 $APP_IMAGE_NAME
         echo "APP Container Is Running Now!"
     else
         echo "APP Container Is Running Now!"
