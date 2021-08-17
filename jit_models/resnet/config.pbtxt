@@ -1,0 +1,71 @@
+name: "resnet"
+
+platform: "pytorch_libtorch"
+
+default_model_filename: "resnet.pt"
+
+max_batch_size:32
+
+input[
+
+        {
+
+                name: "INPUT__0"
+
+                data_type: TYPE_FP32
+
+                dims: [3, 224, 224]
+
+        }
+
+]
+
+output[
+
+        {
+
+                name: "OUTPUT__0"
+
+                data_type: TYPE_FP32
+
+                dims: [2]
+
+        }
+
+]
+
+version_policy: { all { }}
+
+model_warmup [
+
+    {
+
+        name: "warmup_resnet"
+
+        batch_size: 1
+
+        inputs: [
+
+            {
+
+                key: "INPUT__0"
+
+                value: {
+
+                    data_type: TYPE_FP32
+
+                    dims: [3, 224, 224]
+
+                    zero_data: true
+
+                }
+
+            }
+
+        ]
+
+    }
+
+]
+
+instance_group[{count:4}]
