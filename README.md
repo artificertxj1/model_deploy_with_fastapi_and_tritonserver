@@ -26,3 +26,19 @@ Once the app starts running:
             localhost:8080/predict
             
 Image file reading and storage have a directory dependency (/home/ubuntu/image_data). If users have image data located in other local directories, users can change the line 56 in build_and_run_app.sh "-v /home/ubuntu/image_data:/image_data" to "-v <YOUR-IMAGE-DIRECTORY>:/image_data".  API container will bind this localhost directory to container volume /image_data. When you send a request to port 8080, img_Path should be "/image_data/<NAME_OF_IMAGE>" 
+
+Save a torch script (or any other models based on any popular frameworks, TF, ONNX, Caffe, MXNet, etc.), in form of
+    <model>
+       |
+       |____<name_of_model>
+                   |
+                   |_______config.pbtxt
+                   |
+                   |_______<1>_______model_version_1.pt
+                   |
+                   |_______<2>_______model_version_2.pt
+                   |
+                   .
+                   .
+                   .
+This repo demenstrate an example of using tritonserver with grpc protocal. 
