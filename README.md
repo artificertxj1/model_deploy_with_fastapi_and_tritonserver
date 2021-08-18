@@ -29,7 +29,7 @@ Image file reading and storage have a directory dependency (/home/ubuntu/image_d
 
 Save a torch script (or any other models based on any popular frameworks, TF, ONNX, Caffe, MXNet, etc.), in form of
     
-    <model>
+    <model_repo>
     
        |
        
